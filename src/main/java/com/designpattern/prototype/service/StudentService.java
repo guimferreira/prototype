@@ -1,10 +1,13 @@
 package com.designpattern.prototype.service;
 
+import com.designpattern.prototype.dto.StudentDTO;
 import com.designpattern.prototype.model.Student;
 import com.designpattern.prototype.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
