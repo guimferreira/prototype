@@ -28,7 +28,7 @@ public class StudentService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<StudentDTO> findById(Long id) {
+    public Optional<StudentDTO> findStudentById(Long id) {
         return studentRepository.findById(id)
                 .map(this::convertToDTO);
     }
