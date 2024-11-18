@@ -21,6 +21,13 @@ public class StudentService {
         return convertToDTO(studentRepository.save(student));
     }
 
+    public StudentDTO cloneStudent(Long id) {
+        Optional<Student> student = studentRepository.findById(id);
+        Student cloneStudent = student.get().createClone();
+        cloneStudent.setIdStudent(null);
+        return convertToDTO(studentRepository.save(cloneStudent));
+    }
+
     public List<StudentDTO> listStudent() {
         return studentRepository.findAll()
                 .stream()

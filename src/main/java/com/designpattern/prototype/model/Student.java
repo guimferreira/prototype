@@ -1,20 +1,32 @@
 package com.designpattern.prototype.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @NoArgsConstructor
-public class Student {
+public class Student implements Cloneable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idStudent;
+    private Long idStudent;
     private String name;
     private String registry;
+
+    @Override
+    public Student clone() {
+        try {
+            Student student = (Student) super.clone();
+            student.setIdStudent(null);
+            return student;
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
+    }
+
+    public Student createClone() {
+        return this.clone();
+    }
 }

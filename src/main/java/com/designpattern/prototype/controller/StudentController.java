@@ -25,6 +25,13 @@ public class StudentController {
         return ResponseEntity.ok(newStudent);
     }
 
+    @PostMapping("/{id}/clone")
+    public ResponseEntity<StudentDTO> cloneStudent(@PathVariable Long id) {
+        log.info("Call cloneStudent in StudentController with id: {}", id);
+        StudentDTO cloneStudent = studentService.cloneStudent(id);
+        return ResponseEntity.ok(cloneStudent);
+    }
+
     @GetMapping
     public ResponseEntity<List<StudentDTO>> listAllStudents() {
         log.info("Call listAllStudents in StudentController");
