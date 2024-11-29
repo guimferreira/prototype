@@ -34,7 +34,7 @@ A aplicação foi desenvolvida com as seguintes tecnologias e configurações:
 A aplicação utiliza o banco **H2** em memória. As configurações estão definidas no arquivo `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:h2:mem:estudantesdb
+spring.datasource.url=jdbc:h2:file:~/prototype
 spring.datasource.driver-class-name=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=
@@ -42,11 +42,11 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 spring.h2.console.enabled=true
 ```
 
-Acesse o console do banco de dados H2 através do link: http://localhost:8080/h2-console.
+Acesse o console do banco de dados H2 através do link: http://localhost:8080/h2.
 
 ### Endpoints
-- POST ```/api/estudantes```: Cria um novo estudante.
-- POST ```/api/estudantes/{id}/clone```: Clona um estudante existente.
-- GET ```/api/estudantes```: Retorna todos os estudantes cadastrados.
-- PUT ```/api/estudantes/{id}```: Atualiza um estudante.
-- DELETE ```/api/estudantes/{id}```: Remove um estudante.
+- POST ```/student```: Cria um novo estudante.
+- POST ```/student/{id}/clone```: Clona um estudante existente.
+- GET ```/student```: Retorna todos os estudantes cadastrados.
+- PUT ```/student/{id}```: Atualiza um estudante.
+- DELETE ```/student/{id}```: Remove um estudante.
